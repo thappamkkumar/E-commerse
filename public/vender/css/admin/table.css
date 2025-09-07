@@ -1,0 +1,219 @@
+.table_header
+{
+	background:rgba(var(--black-color),0.05);
+}
+/*css for button in user list*/
+#userCustomerBtn, #userVendorBtn, #addUserBTN
+{
+	color:rgba(var(--black-color),0.6);
+	font-weight:bold;
+	box-shadow:0px 10px 15px -6px rgba(var(--black-color),1);
+	transition:all 0.5s ease;
+}
+#userCustomerBtn
+{
+	background:rgba(var(--bluish-shade-color),1);
+}
+#userVendorBtn
+{
+	background:rgba(var(--pink-shade-color),1);
+}
+#addUserBTN
+{
+	background:rgba(var(--ligth-green-color),1);
+}
+#userCustomerBtn:hover, #userVendorBtn:hover, #addUserBTN:hover
+{
+	 
+	box-shadow:0px 10px 15px 2px rgba(var(--black-color),1);
+}
+
+/*css for table*/
+.table_data 
+{
+  width: 100%; /* Make table width equal to screen width */
+  table-layout: fixed; /* Ensure equal width columns */
+
+}
+	
+  
+.table_data td, .table th
+ {
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis for truncated text */
+   vertical-align: middle;
+} 
+.table_data tr
+{
+	border-bottom:1px solid rgba(var(--black-color),0.1);
+} 
+.table_data tbody tr:hover
+{
+	cursor:pointer; 
+}
+.table_data tbody tr:hover td
+{
+	/*background:rgba(var(--black-color),0.1);*/
+}
+.table_data tbody tr td button
+{
+	padding:0px; margin:0px;
+	background:rgba(var(--black-color),0.1);
+}
+.table_data tbody tr:hover td button
+{ 
+	background:rgba(var(--black-color),0.3);
+	color:rgba(var(--white-color),1) !important;
+}
+.table_data tbody tr td button:hover
+{
+	background:rgba(51,51,51,1);
+	color::rgba(var(--white-color),1);
+	font-weight:bold;
+}
+/*css for pagination buttn*/
+.paginateBTN:hover
+{
+	background:rgba(var(--black-color),0.2);
+}
+
+/*css for search form*/
+.searchInput
+{
+	width:300px;
+	border:2px solid rgba(var(--black-color),0.1);
+	
+}
+.searchInput:focus
+{
+	box-shadow:none;
+	border:2px solid rgba(var(--black-color),0.5);
+	box-shadow:0px 10px 15px -8px rgba(var(--black-color),0.5);
+}
+.searchBTN
+{
+	color:rgba(var(--black-color),0.6); 
+	transition:all 0.5s ease;
+}
+.searchBTN:hover
+{
+	color:rgba(var(--black-color),1);
+}
+.searchBTN:focus, .table_data tbody tr td button:focus
+{
+	border:none;
+	outline:none;
+	box-shadow:none;
+}
+
+/*css for update or insert form input*/
+.form_input
+{
+	border:2px solid rgba(var(--black-color),0.1);
+	transition:all 0.3s ease;
+}
+.form_input:focus
+{
+	box-shadow:none;
+	border:2px solid rgba(var(--black-color),0.5);
+	box-shadow:0px 10px 15px -8px rgba(var(--black-color),0.5);
+}
+
+.form-select option:checked
+{
+	background-color: rgba(var(--white-color),1);  
+
+}
+
+.form-select:focus 
+{
+	background-color: rgba(var(--black-color),0.5);
+}
+
+.add_product_image
+{
+display:none;
+}
+@media only screen and (max-width:576px) and (min-width:0px)
+{ 
+	.searchInput
+	{
+		width:80%;   
+		height:auto;
+	}
+}
+ /*css for video iframe*/
+iframe
+{ 
+ 
+}
+
+/*@media only screen and (min-width:1600px)
+{ 
+	iframe
+	{
+		width:70%; 
+	}
+}
+@media only screen and (max-width:1600px) and (min-width:1200px)
+{ 
+	iframe
+	{
+		width:70%; 
+	}
+}
+@media only screen and (max-width:1200px) and (min-width:992px)
+{ 
+	iframe
+	{
+		width:80%; 
+	}
+}*/
+@media only screen and (max-width:992px) and (min-width:768px)
+{ 
+	iframe
+	{
+		width:300px;
+		height:150px;
+	}
+}
+@media only screen and (max-width:767.98px) and (min-width:576px)
+{ 
+	iframe
+	{
+		width:500px;
+		height:300px;
+	}
+}
+
+@media only screen and (max-width:576px) and (min-width:0px)
+{ 
+	iframe
+	{
+		width:80%;   
+		height:auto;
+	}
+}
+/*css end for video*/
+.tableRow 
+{
+	position:relative;
+}
+.tableMoreView
+{
+	width:80px;
+	text-align:center;
+	position:static;
+	 
+}
+@media only screen and (max-width:576px) and (min-width:0px)
+{
+	.tableMoreView
+	{
+		position:absolute;
+		top:1px;
+		bottom:1px;
+		right:1px;
+	}
+}

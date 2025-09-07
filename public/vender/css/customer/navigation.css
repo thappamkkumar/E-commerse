@@ -1,0 +1,137 @@
+body
+{
+	position:relative;
+	padding:0px ;
+	margin:0px;
+	overflow-X:hidden;
+	overflow-Y:auto;
+	-ms-overflow-style:none;
+	-scroll-width:none;
+	width:100%;
+	color:rgba(var(--black-color),1);
+	background:rgba(var(--white-color),1); 
+	/*font-family:'Time New Roman',serif;
+	font-family:'Arial',sans-serif;  
+	font-family:'Verdana',sans-serif;
+	font-family:'Tahoma',sans-serif;*/
+}
+ 
+
+@media only screen and (min-width:2000px)
+{
+	body
+	{
+		width:2000px;
+		margin:auto;
+		box-shadow:0px 0px 10px 2px rgba(var(--black-color),0.4);
+	}
+}
+body::-webkit-scrollbar
+{
+	display:none;
+	
+} 
+
+*
+{
+	box-sizing:border-box;
+	padding:0px ;
+	margin:0px;
+	
+}
+#user_navigation_container
+{
+	  
+	background:rgba(var(--white-color),1);
+	z-index:10;
+}
+/*.nav_logo_img
+{
+	width:250px;
+	height:60px;  
+}
+@media only screen and (min-width:768px) and (max-width:900px)
+{
+	.nav_logo_img
+	{
+		width:200px;
+		height:60px; 
+	}
+}*/
+
+.logo
+{
+	text-decoration:none;
+	font-size:1.8rem;
+	font-weight:bold; 
+	font-style:italic;
+	color:rgba(var(--black-color), 1);   
+}
+
+.navigation_link
+{
+	color:rgba(var(--black-color), 0.6);  
+	font-weight:500; 	
+	padding:0px;
+	transition:all 0.5s; 
+}
+.navigation_link:hover
+{
+	color:rgba(var(--black-color), 1);
+	 
+	/*color:rgba(var(--danger-color),1);
+	border-bottom: 1px solid rgba(var(--danger-color),1);
+	box-shadow:0px 0px 5px 2px rgba(var(--black-color),0.2);  */
+}  
+.active_navigation_link
+{
+	 
+	color:rgba(var(--black-color), 1); 
+	 font-weight:600; 	
+	
+}
+ 
+/*#navigation_link_profile
+{
+	padding:5px;
+	background:rgba(var(--black-color),1);
+	border-radius:50%;
+	overflow:hidden;
+	transition:all 0.5s ease;
+}
+.nav_profile_img
+{
+		width:35px;
+		aspect-ratio:1/1;
+		object-fit:cover;
+		transition:all 0.5s ease;
+}
+#navigation_link_profile:hover .nav_profile_img
+{
+	transform:scale(1.5,1.5);
+}*/
+
+ 
+
+#navigation_link_login, #navigation_link_logout
+{
+	background:rgba(51, 51, 51,1);
+	color:#fff;
+	font-weight:bold;
+}
+#navigation_link_login:hover, #navigation_link_logout:hover
+{
+	background:rgba(51, 51, 51,0.5);
+}
+
+.user_naviagtion_controll_btn:hover
+{
+	background:rgba(var(--black-color),0.2);
+}
+/* 
+ #navigation_link_search, #navigation_link_search1
+ {
+	 text-shadow: 1px 1px 0 currentColor, -1px -1px 0 currentColor, 1px -1px 0 currentColor, -1px 1px 0 currentColor;
+        
+ }
+  */

@@ -1,0 +1,22 @@
+:root { 
+  --forest-green-color: 77,119,78;
+  --sage-green-color: 157,200,144;
+  --shade-orange-or-gold-color: 241,178,74;
+  --white-color: 255,255,255;
+  --black-color: 0,0,0; 
+  --danger-color: 220,53,69;
+  --custom-yellow-color: 238,168,14;
+  --success-color: 25,100,40; /*is almost same as dark teal color*/
+  
+  
+  /*  Colors that have good combnation with sage-green */
+  --red-color:232,80,91;
+  --orange-color:255, 204, 102;
+  --purple-color:153, 102, 255;
+  --ligth-green-color:144, 200, 157;
+  --bluish-shade-color:144, 157, 200; 
+  --pink-shade-color:200, 144, 157;
+  --blue-color:0, 0, 255; 
+} 
+
+ 

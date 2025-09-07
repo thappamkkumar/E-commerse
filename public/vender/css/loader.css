@@ -1,0 +1,59 @@
+/* Overlay background */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.1);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it is on top of all elements */
+		 
+}
+
+/* Loading text styling */
+#loadingText {
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: loadingText 2s linear infinite;
+		background:#fff;
+		text-align:center;
+}
+
+/* Dot animation effect */
+.dot::after {
+    content: '.';
+    animation: blink 1.5s infinite;
+}
+
+.dot:nth-child(2)::after {
+    content: '..';
+    animation: blink 1.5s infinite;
+    animation-delay: 0.5s;
+}
+
+.dot:nth-child(3)::after {
+    content: '...';
+    animation: blink 1.5s infinite;
+    animation-delay: 1s;
+}
+
+/* Blinking effect for dots */
+@keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Animation for loading text */
+@keyframes loadingText {
+    0% { color: #3498db; }
+    50% { color: #ff6347; }
+    100% { color: #3498db; }
+}

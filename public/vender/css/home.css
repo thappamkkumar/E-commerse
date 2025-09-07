@@ -1,0 +1,150 @@
+.home_container
+{
+	width:100%;
+	height:auto;
+	margin:auto;
+	
+}
+/* css for home  container 1 */
+.home_container_1
+{
+	width:100%;
+	height:auto;    
+	min-height:100vh;
+	padding:5x 10px 5x 10px;
+}   
+.home_container_1_image
+{
+	width:100%; 
+	  
+}
+.home_shop_now_btn
+{
+	background:rgba(var(--forest-green-color),0.0);
+	color:rgba(var(--black-color),1);
+	/*box-shadow:10px 10px 0px -2px rgba(var(--forest-green-color),0.4);*/
+	border:2px solid rgba(var(--black-color),1);
+	font-weight:bold;
+	 
+}
+.home_shop_now_btn:hover
+{
+	/*box-shadow:10px -10px 0px -2px rgba(var(--forest-green-color),0.4);*/
+	background:rgba(var(--black-color),1);
+	color:rgba(var(--white-color),1); 
+}
+.line
+{
+	width:100%;
+	height:10px;
+	background:rgba(var(--black-color),0.2);
+	margin:10px 0px;
+}
+#head_type_text
+{
+	font-size:3em;
+} 
+@media only screen and (min-height:700px) 
+{
+	.home_container_1
+	{
+		/*min-height:700px; */
+	}
+} 
+@media only screen and (max-width:550px)  
+{
+	.home_container_1_image
+	{
+		width:90%;
+	}
+	#head_type_text
+	{
+		font-size:2.5em;
+	}
+}
+@media only screen and (max-width:320px)  
+{
+	.home_container_1_image
+	{
+		width:100%;
+	}
+	 
+}
+@media only screen and (max-width:992px)
+{
+	.home_container_1
+	{
+		padding:20px 10px 50px 10px;
+	}
+}
+
+
+/*css end for home container 1*/
+
+.home_section
+{
+	width:100%;
+	height:auto;
+	background:inherit; 
+} 
+/*.list-group-item
+{
+	background:rgba(var(--sage-green-color),0.8);
+}
+.cat_product
+{
+	width:100%;
+	height:auto;
+}
+.cat_product img
+{
+	width:100%;
+	aspect-ratio:1/1;
+}*/
+.brand_main_container
+{
+	position:relative;
+}
+.brand_container
+{
+	overflow:auto;
+	scrollbar-width: none; /* Firefox */
+}
+
+.brand_container::-webkit-scrollbar {
+    display: none; /* WebKit (Chrome, Safari) */
+}
+
+
+.brand_image
+{
+	width:200px;
+	aspect-ratio:1/1;
+}
+@media only screen and (min-width:0px) and (max-width:576px)
+{
+		.brand_image
+	{
+		width:100px;
+		aspect-ratio:1/1;
+	}
+}
+.brand_slide_indicator_pre,
+.brand_slide_indicator_next
+{
+	position:absolute;
+	top:0px;
+	width:auto;
+	height:auto; 
+	background:rgba(var(--black-color), 0.3);
+	color:rgba(var(--black-color), 1);
+	border:none;
+} 
+.brand_slide_indicator_pre
+{
+	left:0px;
+}
+.brand_slide_indicator_next
+{
+	right:0px;
+}

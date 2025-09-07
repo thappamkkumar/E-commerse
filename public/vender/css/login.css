@@ -1,0 +1,112 @@
+
+.section_login_main_container
+{
+	
+	/*background-image: url('/images/img1.svg');
+	background-repeat:no-repeat; background-size:100% 100%;*/
+}
+
+@media only screen and (min-width:0px) and (max-width:992px)
+{
+	.section_login_main_container
+	{ 
+		background-image: url('/images/img2.svg');
+		background-repeat:no-repeat; background-size:100% 100%;
+	} 
+}
+.login_main_container
+{
+	width:100%;
+	height:auto; 
+	background:rgba(var(--white-color),0.0);
+	 
+}
+.login_container
+{
+	width:100%;
+	height:100%;
+	box-shadow:-5px 0px 8px -4px rgba(var(--black-color),0.5);
+	background:rgba(var(--white-color),0.95);
+	
+}
+@media only screen and (min-width:400px) and (max-width:992px)
+{
+	.login_container
+	{
+		width:400px; 
+		 box-shadow:0px 0px 20px 2px rgba(var(--black-color),0.05);
+		margin:auto;
+	}
+	 
+	 
+}
+@media only screen and (min-width:0px) and (max-width:400px)
+{
+	.login_container
+	{
+		width:90%; 
+		box-shadow:0px 0px 20px 2px rgba(var(--black-color),0.05);
+		margin:auto;
+		 
+	}
+	 
+ 
+	
+}
+.login_input{
+	border:2px solid rgba(var(--black-color),0.5);
+}
+ 
+.login_input:focus
+{
+	box-shadow:none;
+	outline:none;
+	border:2px solid rgba(var(--black-color),1);
+}
+.form-group:focus-within .form-label
+{ 
+	border-bottom:2px solid rgba(var(--black-color),1);
+}
+.submit_btn
+{
+	font-weight:bold;
+	background:rgba(51, 51, 51,1);
+	color:rgba(var(--white-color),1); 
+}
+.submit_btn:hover
+{
+	background:rgba(51, 51, 51,0.6);
+	color:rgba(var(--white-color),1); 
+}
+.registerBTN
+{
+	background:rgba(var(--red-color),0.0);
+	border:2px solid rgba(var(--red-color),1);
+	color:rgba(var(--red-color),1);
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.registerBTN:hover, .registerBTN:active, .registerBTN:focus
+{
+	background:rgba(var(--red-color),1);
+	color:rgba(var(--black-color),1);
+}
+.login_check
+{
+	border:2px solid rgba(var(--black-color),0.5);
+}
+.login_check:checked
+{
+	background:rgba(var(--black-color),1);
+	border:2px solid rgba(var(--black-color),1);
+	box-shadow:none;
+} 
+.login_check:focus
+{ 
+	box-shadow:none;
+}
+
+#registrationMSG_Container, #otpContainer
+{
+	display:none;
+}

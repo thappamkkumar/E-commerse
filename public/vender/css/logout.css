@@ -1,0 +1,21 @@
+.logout_container
+{
+	width:100%;
+	height:auto;
+	min-height:100vh;
+	padding:100px 10px 10px 10px; 
+}
+.logout
+{
+	width:500px;
+	height:auto;
+	background:#fff;
+	
+}
+@media only screen and (max-width:567px)
+{
+	.logout
+	{
+		width:90%;
+	}
+}

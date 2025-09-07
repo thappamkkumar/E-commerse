@@ -1,0 +1,114 @@
+.profile_container
+{
+	width:100%;
+	
+	min-height:100vh;
+	height:auto;
+	padding-top:10px; 
+	padding-bottom:10px; 
+	position:relative;
+}
+.profile
+{
+	width:100%;
+}
+.profile_image
+{
+	width:250px;
+	aspect-ratio:1/1;
+	object-fit:fill;
+	border-radius:50%;
+}
+@media only screen and (min-width:1500px)
+{
+	.profile
+	{
+		width:65%; 
+	}
+}
+@media only screen and (max-width:1500px) and (min-width:1200px)
+{
+	.profile
+	{
+		width:75%; 
+	}
+}
+@media only screen and (max-width:1200px) and (min-width:992px)
+{
+	.profile
+	{
+		width:90%; 
+	}
+}
+@media only screen and (max-width:992px)  
+{
+	.profile
+	{
+		width:65%; 
+	}
+	 
+}
+@media only screen and (max-width:768px)  
+{
+	.profile
+	{
+		width:90%; 
+	}
+	 
+}
+@media only screen and (max-width:400px)  
+{
+	.profile
+	{
+		width:100%; 
+	}
+	.profile_image
+	{
+		width:200px;
+		height:200px;
+	}
+}
+
+.profile_update_container
+{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	min-height:100vh;
+	height:auto;
+	overflow:auto;
+	padding:10px 10px 10px 10px;
+	background:rgba(var(--black-color),0.9);
+	visibility:hidden;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	z-index:12;
+}
+.update_profile
+{
+	background:rgba(var(--white-color),1);
+	width:600px;
+	 
+	border-radius:10px;
+}
+@media only screen and (max-width:768px)  
+{
+	.update_profile
+	{
+		width:98%;
+	}
+	 
+}
+
+.profile_detail_update_btn
+{
+	background:transparent;
+	color:rgba(0,100,100,1);
+}
+.profile_detail_update_btn:hover
+{
+	background:transparent;
+	color:rgba(0,100,100,0.8);
+}
