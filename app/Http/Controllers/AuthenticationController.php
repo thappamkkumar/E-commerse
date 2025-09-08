@@ -37,7 +37,7 @@ class AuthenticationController extends Controller
 		}
 	}
 	
-	//function for authenticatio onf user
+	//function for authenticatioon of user
 	public function authenticate(Request $request)
 	{
 		$credentials = $request->validate([

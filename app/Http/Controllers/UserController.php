@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Hash; 
+use Illuminate\Support\Facades\Validator;
+
 //use models 
 use App\Models\User;
 use App\Models\Customer;
@@ -37,20 +39,47 @@ class UserController extends Controller
 	//Function to add new User
 	function addUser(Request $request)
 	{
-		$validated_data=$request->except('_token');
+	 ;
+		 // ? Validate the data first
+    $validator = Validator::make($request->all(), [
+        'name'     => 'required',
+        'email'    => 'required|unique:users,email',
+        'password' => 'required', 
+        'contact'  => 'required|max:15',
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([
+            'status' => 'false',
+            'errors' => $validator->errors()
+        ], 422);
+    }
+
+    $validated_data = $validator->validated();
+		
+		$userData = [
+        'email'             => $validated_data['email'],
+        'password'          => Hash::make($validated_data['password']),
+        'mobile_number'     => $validated_data['contact'],
+        'user_role'         => User::USER_ROLE,
+        'email_verified_at' => now(),
+    ];
+		
+		/*$validated_data=$request->except('_token');
 		 
 		$userData = [];
 		$userData['email'] = $validated_data['email'];
 		$userData['password'] = Hash::make($request->password);
 		$userData['mobile_number'] = $validated_data['contact'];
 		$userData['user_role'] = User::USER_ROLE;
-		$userData['email_verified_at'] = now();
+		$userData['email_verified_at'] = now();*/
 		
 		try
 		{
 			
 			$user = User::create($userData); 
 			 
+
 				$customerData = [];
 				$customerData['user_id'] = $user->id; 
 				$customerData['name'] = $validated_data['name']; 
@@ -63,7 +92,7 @@ class UserController extends Controller
 				$customerData['pincode'] = ""; 
 				$customerData['profile_image'] = "";  
 				
-				$customer = Customer::create($customerData);  
+				Customer::create($customerData);  
  			 
 			$data = ['status' => 'true'];
 			return response()->json($data);  
