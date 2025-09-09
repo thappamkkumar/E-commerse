@@ -110,8 +110,7 @@ class CustomerProfileController extends Controller
 	public function update_details(Request $request)
 	{
 		$validated_data = $request->validate([
-			'name'=>'required',
-			'email'=>'required|email', 
+			'name'=>'required', 
 			'contact'=>'numeric|nullable', 
 			 
 		]);
