@@ -24,17 +24,17 @@ class AuthTest extends TestCase
 		public function test_user_can_register_with_valid_data()
 		{
 			 $this->withoutMiddleware();
-			$response = $this->post('/addUser',[
-				'name' => 'Mukesh',
-				'email' => 'mukesh@example.com',
-				'password' => 'mukesh;06',
-				'contact' => '987654321033',  
-			]);
+				$response = $this->post('/addUser',[
+					'name' => 'Mukesh',
+					'email' => 'mukesh@example.com',
+					'password' => 'mukesh;06',
+					'contact' => '987654321033',  
+				]);
+				
+				//dump($response->json());
 			
-			//dump($response->json());
-		
-			//check database for new user
-		 	$this->assertDatabaseHas('users', ['email'=>'mukesh@example.com']);
+				//check database for new user
+				$this->assertDatabaseHas('users', ['email'=>'mukesh@example.com']);
 			 
 		}
 	
