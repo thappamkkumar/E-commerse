@@ -1,11 +1,13 @@
 <?php
 
 namespace Database\Factories;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Faker\Generator as Faker;
+
 use App\Models\Product;
 use App\Models\Categories;
+use App\Models\Brands;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class ProductFactory extends Factory
 {
@@ -13,25 +15,21 @@ class ProductFactory extends Factory
 
     public function definition()
     {
-        $images = $this->faker->optional()->randomElements(['image1.jpg', 'image2.jpg', 'image3.jpg'], $this->faker->numberBetween(1, 3));
-        $imagesSerialized = $images ? json_encode($images) : null;
-
-        return [
-            'categories_id' => Categories::inRandomOrder()->first()->id,
-            'user_id' => User::inRandomOrder()->first()->id,
-            'name' => $this->faker->name,
-            'slug' => $this->faker->unique()->slug,
-            'price' => $this->faker->randomFloat(2, 10, 1000),
-            'sale_price' => $this->faker->optional()->randomFloat(2, 5, 500),
-            'delivery_charges' => $this->faker->optional()->randomFloat(2, 5, 500),
-            //'gst' => $this->faker->optional()->randomFloat(2, 5, 500),
-            'description' => $this->faker->sentence,
-            'specification' => $this->faker->paragraph,
-            'stock' => $this->faker->numberBetween(0, 100),
-            'video_url' => $this->faker->optional()->url,
-            'images' => $imagesSerialized,
-            'thumnail' => $this->faker->optional()->imageUrl(),
-            'is_active' => $this->faker->boolean(90), // 90% chance of being true
+			 $name = $this->faker->words(2, true);
+         return [
+            'categories_id' => Categories::factory(),
+            'brand_id'      => Brands::factory(),
+            'name'          => ucfirst($name),
+            'slug'          => Str::slug($name . '-' . $this->faker->unique()->numberBetween(1, 9999)),
+            'price'         => $this->faker->randomFloat(2, 100, 5000),
+            'sale_price'    => $this->faker->randomFloat(2, 50, 4000),
+             'description'   => $this->faker->paragraph(),
+            'specification' => $this->faker->sentence(),
+            'stock'         => $this->faker->numberBetween(1, 100),
+            'video_url'     => $this->faker->url(),
+            'images'        => json_encode([$this->faker->imageUrl(640, 480, 'products', true)]),
+            'thumnail'      => $this->faker->imageUrl(640, 480, 'thumb', true),
+            'is_active'     => 1,
         ];
     }
 }

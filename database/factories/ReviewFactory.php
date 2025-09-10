@@ -2,32 +2,22 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Faker\Generator as Faker;
 use App\Models\Review;
 use App\Models\User;
 use App\Models\Product;
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Review>
- */
+use Illuminate\Database\Eloquent\Factories\Factory;
+
 class ReviewFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-	 protected $model = Review::class;
-    public function definition(): array
+    protected $model = Review::class;
+
+    public function definition()
     {
-		$faker = \Faker\Factory::create(); // Create Faker instance
         return [
-			'user_id' => User::inRandomOrder()->first()->id,
-			'product_id' => Product::inRandomOrder()->first()->id,
-			'review' => $faker->paragraph(),
-			'rating' => $faker->numberBetween(1, 5),
-			'created_at' => $faker->dateTimeBetween('-1 year', 'now'),
-			'updated_at' => $faker->dateTimeBetween('-1 year', 'now')
+            'user_id'    => User::factory(),
+            'product_id' => Product::factory(),
+            'review'     => $this->faker->sentence(),
+            'rating'     => $this->faker->numberBetween(1, 5),
         ];
     }
 }

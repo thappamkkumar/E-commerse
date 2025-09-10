@@ -2,41 +2,25 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Faker\Generator as Faker;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\Product;
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Transaction>
- */
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
 class TransactionFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-	 protected $model = Transaction::class;
-    public function definition(): array
+    protected $model = Transaction::class;
+
+    public function definition()
     {
-		$faker = \Faker\Factory::create(); // Create Faker instance
         return [
-        'user_id' => function () {
-            return User::inRandomOrder()->first()->id;
-        },
-        'product_id' => function () {
-            return Product::inRandomOrder()->first()->id;
-        },
-        'transaction_id' => $faker->uuid,
-        'status' => $faker->randomElement(['success', 'pending', 'failed']),
-        'amount' => $faker->randomFloat(2, 10, 1000),
-        'transaction_details' => json_encode([
-                'description' => $faker->sentence,
-                'date' => $faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d H:i:s'),
-            ]),
-        'created_at' => $faker->dateTimeBetween('-1 year', 'now'),
-        'updated_at' => now(),
-    ];
+            'user_id'             => User::factory(),
+            'product_id'          => Product::factory(),
+            'transaction_id'      => strtoupper(Str::random(12)),
+            'status'              => $this->faker->randomElement(['pending', 'success', 'failed']),
+            'amount'              => $this->faker->randomFloat(2, 100, 1000),
+            'transaction_details' => $this->faker->sentence(),
+        ];
     }
 }

@@ -131,14 +131,23 @@ class CustomerProductController extends Controller
 				session()->forget('order_product_detail');
 				 
 			}
+			
+			
 			//for back button
-			$prepage=session('user_back');
+		/*	$prepage=session('user_back');
 			$pre=$prepage[count($prepage)-1];
 			if($pre!==url()->full())
 			{
 				$prepage[]=url()->full();
 			}
-			session(['user_back'=> $prepage ]);
+			session(['user_back'=> $prepage ]);*/
+			$prepage = session('user_back', []); // default empty array
+			$pre = count($prepage) ? $prepage[count($prepage) - 1] : null; 
+			if ($pre !== url()->full()) {
+					$prepage[] = url()->full();
+			} 
+			session(['user_back' => $prepage]);
+			
 			
 			 
 			//just asign productCode to product
@@ -296,14 +305,25 @@ class CustomerProductController extends Controller
             ->paginate(18);
 			
 			 
-			$prepage=session('user_back');
+			/*$prepage=session('user_back');
 			$pre=$prepage[count($prepage)-1];
 			$cur_page=$products->url($products->currentPage());
 			if($pre!==$cur_page)
 			{
 				$prepage[]=$cur_page;
 			}
-			session(['user_back'=> $prepage ]);
+			session(['user_back'=> $prepage ]);*/
+			$prepage = session('user_back', []); // default empty array
+			$pre = count($prepage) ? $prepage[count($prepage) - 1] : null; 
+			
+			$cur_page=$products->url($products->currentPage());
+			if($pre!==$cur_page)
+			{
+				$prepage[]=$cur_page;
+			}
+			session(['user_back' => $prepage]);
+			
+			
 			
 			foreach ($products as  $product) {
 					$product->thumnail = $product->thumnail
