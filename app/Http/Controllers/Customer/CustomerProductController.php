@@ -30,13 +30,21 @@ class CustomerProductController extends Controller
 	{
 		try
 		{
-			$prepage=session('user_back');
+			/*$prepage=session('user_back');
 			$pre=$prepage[count($prepage)-1];
 			if($pre!==url()->full())
 			{
 				$prepage[]=url()->full();
 			}
-			session(['user_back'=> $prepage ]);
+			session(['user_back'=> $prepage ]);*/
+			$prepage = session('user_back', []); // default empty array
+			$pre = count($prepage) ? $prepage[count($prepage) - 1] : null; 
+			if ($pre !== url()->full()) {
+					$prepage[] = url()->full();
+			} 
+			session(['user_back' => $prepage]);
+			
+			
 			$products = $category->products()->paginate(18);
 			$categoryName = $category->name;
 			

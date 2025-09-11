@@ -39,7 +39,7 @@ class ProductTest extends TestCase
 			
 			//hold or dd if any error
 			if ($response->status() >= 400) {
-          dd('Error: ' . $response->status(), $response->getContent());
+          //dd('Error: ' . $response->status(), $response->getContent());
        }
 			// Assert
 			$response->assertStatus(200);
@@ -89,8 +89,8 @@ class ProductTest extends TestCase
 		}
 		
 		// User can search products by name/keyword
-		 public function test_user_can_search_products_by_name_or_keyword()
-		 {
+		public function test_user_can_search_products_by_name_or_keyword()
+		{
 				// Create products
         $matchingProduct = Product::factory()->create([
             'name' => 'Red Shoes',
@@ -124,8 +124,30 @@ class ProductTest extends TestCase
         $response->assertDontSee($nonMatchingProduct->name);
 				
 		 }
-		 
-	
+		
+		//upload review for selected product 
+		public function test_upload_review_for_selected_product()
+		{
+			$user = User::factory()->create();
+			$product = Product::factory()->create();
+			$reviewData = [
+				'product_id' => $product->id,
+				'rating' => 5,
+				'review' => 'This product is so good. It use best material and good quality. It is best by cost and quality.It is under budget and not so much costly as compare to other brands.It is durable and comfertable.And also key for attraction.This product is so good. It use best material and good quality. It is best by cost and quality.It is under budget and not so much costly as compare to other brands.It is durable and comfertable.And also key for attraction.This product is so good. It use best material and good quality. It is best by cost and quality.It is under budget and not so much costly as compare to other brands.It is durable and comfertable.And also key for attraction.',
+				
+			];
+			
+			$this->actingAs($user);
+			
+			$response = $this->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class)->post('/productRating', $reviewData);
+			if ($response->status() >= 400) {
+					 dd('Error: '.$response->status(), $response->getContent());
+			}
+			 
+			$response->assertStatus(200);
+			$response->assertSee($product->id);
+		}
+			
 		
 		
 }
