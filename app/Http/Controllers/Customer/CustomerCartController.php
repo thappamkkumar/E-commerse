@@ -19,13 +19,20 @@ class CustomerCartController extends Controller
 	{
 		try
 		{
-			$prepage=session('user_back');
+			/*$prepage=session('user_back');
 			$pre=$prepage[count($prepage)-1];
 			if($pre!==url()->full())
 			{
 				$prepage[]=url()->full();
 			}
-			session(['user_back'=> $prepage ]);
+			session(['user_back'=> $prepage ]);*/
+			$prepage = session('user_back', []); // default empty array
+			$pre = count($prepage) ? $prepage[count($prepage) - 1] : null; 
+			if ($pre !== url()->full()) {
+					$prepage[] = url()->full();
+			} 
+			session(['user_back' => $prepage]);
+			
 			$cartList = auth()->user()->carts()->orderby('id','DESC')->paginate(10);
 			
 			foreach ($cartList as  $cart) {
@@ -74,11 +81,16 @@ class CustomerCartController extends Controller
 	{
 		try
 		{ 
-			 
-			$cart->quantity=$cart->quantity + 1;
-			$cart->save();
-			return redirect()->route('userCartList')->with('success', 'Quantity Is Updated Successfully.');
-			
+			if($cart->product->stock > $cart->quantity)
+			{
+				$cart->quantity=$cart->quantity + 1;
+				$cart->save();
+				return redirect()->route('userCartList')->with('success', 'Quantity Is Updated Successfully.');
+			}
+			else
+			{
+				return redirect()->route('userCartList')->with('danger', 'Out of stock.');
+			}
 		}
 		catch(Exception $e)
 		{
@@ -119,7 +131,7 @@ class CustomerCartController extends Controller
 		try
 		{
 			$cart->delete(); 
-			return redirect()->route('userCartList', [], 301)->with('success', 'Cart Is Deleted  Successfully.');
+			return redirect()->route('userCartList')->with('success', 'Cart Is Deleted  Successfully.');
 			 
 		}
 		catch(Exception $e)
