@@ -22,6 +22,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $webDetail=Admin::orderBy('id','DESC')->first()->get(['webSiteName', 'email', 'address', 'addressMapUrl', 'contact', 'instagram','facebook', 'youtube', ]);
-	View::share('webDetail', $webDetail);
+				View::share('webDetail', $webDetail);
     }
 }
