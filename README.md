@@ -108,7 +108,7 @@ The platform focuses more on backend workflows, business logic, and system archi
 StyleLoop follows a modular Laravel MVC architecture with centralized business logic and structured data management.
 
 ### Frontend
-- React.js
+- Blade Templating Engine
 - Bootstrap
 - JavaScript
 
@@ -131,7 +131,7 @@ StyleLoop follows a modular Laravel MVC architecture with centralized business l
 ## ⚙️ Tech Stack
 
 ### Frontend
-- React.js
+- Blade Templating Engine
 - Bootstrap
 - JavaScript
 
@@ -263,22 +263,7 @@ php artisan serve
 ```
 
 ---
-
-### Frontend Setup
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Compile frontend assets:
-
-```bash
-npm run dev
-```
-
----
+ 
 
 ## 🔐 Authentication & Authorization
 
